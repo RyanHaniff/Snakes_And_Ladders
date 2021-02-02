@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Showed the grid to user" />
+    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Showed the grid to user">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LadderAndSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LadderAndSnake.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

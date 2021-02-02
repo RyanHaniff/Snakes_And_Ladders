@@ -50,6 +50,18 @@ public class LadderAndSnake {
 //                System.out.println("Player " + players[i].getPlayerNumber() + " got dice value of " + players[i].getPositionOnBoard() + "; now in square " + players[i].getPositionOnBoard());
 //
 //            }
+
+            /*if (getPositionOnBoard() > 100) {
+            we are on 98 and roll a 5: 98+5 = 103 (would be our latest position)
+            setPositionOnBoard(100 - (getBoardPosition - 100))
+
+            if(getPositionOnBoard() == 100)
+            won = true;
+            sout("Congrats, you won!")
+            else
+            System.out.println("Game not over; flipping again");
+            */
+
             test++;
 
             System.out.println("Game not over; flipping again");
@@ -57,8 +69,8 @@ public class LadderAndSnake {
     }
 
     // TODO: 2021-01-31 We must always check to see if a player won, use a while loop and while(!won) they continue to play.
-    // TODO: 2021-01-31 If we roll past 100 we have to decrement the remaining numbers back on the grid.
     // TODO: 2021-01-31 Comments and javadoc
+    // TODO: 2021-02-02 How to output grid and move players on the grid.  
 
     /**
      * Move the players on the grid
