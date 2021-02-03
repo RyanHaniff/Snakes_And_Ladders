@@ -26,12 +26,13 @@ public class LadderAndSnake {
             players[i] = new Players(i + 1); //add a player to the array with a player number
         }
 
+        //odrder the players based on dice roll
         playerOrderCalc(players, 0, players.length);
 
         //output toString
         System.out.println("back from playerOrderCalc");
         System.out.print("Reached final decision on order of playing: Player ");
-        for (int i = players.length - 1; i >= 0; i--) {
+        for (int i = players.length - 1; i >= 0; i--) { //outputs the order of the players
             if (i != 0) {
                 System.out.print(players[i].getPlayerNumber() + ", Player ");
             } else {
@@ -42,42 +43,25 @@ public class LadderAndSnake {
 
         boolean won = false;
         int test = 0;
-        while (test < 8) { //looping the players until someone reach 100
+        while (!won) { //looping the players until someone reach 100
 
-            movePlayer(players);
-//            for (int i = players.length - 1; i >= 0; i--) {
-//                //System.out.println("Player " + players[i].playerNumber + " moved to " + players[i].getPositionOnBoard());
-//                System.out.println("Player " + players[i].getPlayerNumber() + " got dice value of " + players[i].getPositionOnBoard() + "; now in square " + players[i].getPositionOnBoard());
-//
-//            }
-
-            /*if (getPositionOnBoard() > 100) {
-            we are on 98 and roll a 5: 98+5 = 103 (would be our latest position)
-            setPositionOnBoard(100 - (getBoardPosition - 100))
-
-            if(getPositionOnBoard() == 100)
-            won = true;
-            sout("Congrats, you won!")
-            else
+            won = movePlayer(players);
             System.out.println("Game not over; flipping again");
-            */
-
-            test++;
-
-            System.out.println("Game not over; flipping again");
+            System.out.println();
         }
     }
 
     // TODO: 2021-01-31 We must always check to see if a player won, use a while loop and while(!won) they continue to play.
     // TODO: 2021-01-31 Comments and javadoc
-    // TODO: 2021-02-02 How to output grid and move players on the grid.  
+    // TODO: 2021-02-02 How to output grid and move players on the grid.
+    // TODO: 2021-02-03 Verify who won loop
 
     /**
      * Move the players on the grid
      *
      * @param players the players on the board
      */
-    public void movePlayer(Players[] players) {
+    public Boolean movePlayer(Players[] players) {
         snakePosition();
         ladderPosition();
 
@@ -112,8 +96,21 @@ public class LadderAndSnake {
                 System.out.println("Player " + players[playerOrder].getPlayerNumber() + " got dice value of " + players[playerOrder].getDiceRoll() +
                         "; now in square " + players[playerOrder].getPositionOnBoard());
             }
+
         }
-        System.out.println("------------------");
+        for(int playerOrder = 0; playerOrder < players.length; playerOrder++) {
+            if (players[playerOrder].getPositionOnBoard() > 100) {
+                //we are on 98 and roll a 5: 98+5 = 103 (would be our latest position)
+                players[playerOrder].setPositionOnBoard(100 - (players[playerOrder].getPositionOnBoard() - 100));
+                return false;
+            } else if (players[playerOrder].getPositionOnBoard() == 100) {
+                System.out.println("Congrats, you won!");
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 
     public void playerOrderCalc(Players[] players, int start, int end) { //start is the starting position of array, and end is ending.
