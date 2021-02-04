@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Todo comments and algorithm to check if player is over 100">
+    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Added the check to see if position 100 was landed on">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment1/LadderAndSnake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment1/LadderAndSnake.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment1/Players.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment1/Players.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LadderAndSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LadderAndSnake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Players.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +45,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../COMP249_Workspace/Assignment1_COMP_249-master" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -121,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612305593575</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added the check to see if position 100 was landed on">
+      <created>1612386712614</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612386712614</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -144,15 +153,16 @@
     <MESSAGE value="Figured out who got the largest value" />
     <MESSAGE value="Added todo" />
     <MESSAGE value="Todo comments and algorithm to check if player is over 100" />
-    <option name="LAST_COMMIT_MESSAGE" value="Todo comments and algorithm to check if player is over 100" />
+    <MESSAGE value="Added the check to see if position 100 was landed on" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the check to see if position 100 was landed on" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/PlayLadderAndSnake.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/src/LadderAndSnake.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

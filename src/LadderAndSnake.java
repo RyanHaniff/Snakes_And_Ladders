@@ -41,21 +41,27 @@ public class LadderAndSnake {
             }
         }
 
+//        players[0].setPositionOnBoard(90);
+//        players[1].setPositionOnBoard(90);
+//        players[2].setPositionOnBoard(90);
+//        players[3].setPositionOnBoard(90);
+
         boolean won = false;
         int test = 0;
         while (!won) { //looping the players until someone reach 100
 
             won = movePlayer(players);
-            System.out.println("Game not over; flipping again");
-            System.out.println();
+            if(!won) {
+                System.out.println("Game not over; flipping again");
+                System.out.println();
+            }
         }
     }
 
-    // TODO: 2021-01-31 We must always check to see if a player won, use a while loop and while(!won) they continue to play.
+
     // TODO: 2021-01-31 Comments and javadoc
     // TODO: 2021-02-02 How to output grid and move players on the grid.
-    // TODO: 2021-02-03 Verify who won loop
-
+    // TODO: 2021-02-04 add line "They were on square 70 and now on square 74
     /**
      * Move the players on the grid
      *
@@ -64,6 +70,7 @@ public class LadderAndSnake {
     public Boolean movePlayer(Players[] players) {
         snakePosition();
         ladderPosition();
+        boolean didTheyWin = false;
 
         for (int playerOrder = players.length - 1; playerOrder >= 0; playerOrder--) { //our players are in ascending order, so we start from last array position
             players[playerOrder].setDiceRoll(flipDice()); //bc we're flipping the dice and need to assign it to the correct player (to add to their position on the board)
@@ -92,22 +99,9 @@ public class LadderAndSnake {
                     // System.out.println("They landed at the bottom of a ladder and have been moved up to square " + players[playerOrder].getPositionOnBoard());
                 }
             }
-            if (!players[playerOrder].isLandedOnSnake() && !players[playerOrder].isLandedOnLadder()) {
-                System.out.println("Player " + players[playerOrder].getPlayerNumber() + " got dice value of " + players[playerOrder].getDiceRoll() +
-                        "; now in square " + players[playerOrder].getPositionOnBoard());
-            }
-
-        }
-        for(int playerOrder = 0; playerOrder < players.length; playerOrder++) {
-            if (players[playerOrder].getPositionOnBoard() > 100) {
-                //we are on 98 and roll a 5: 98+5 = 103 (would be our latest position)
-                players[playerOrder].setPositionOnBoard(100 - (players[playerOrder].getPositionOnBoard() - 100));
-                return false;
-            } else if (players[playerOrder].getPositionOnBoard() == 100) {
-                System.out.println("Congrats, you won!");
+            didTheyWin = players[playerOrder].checkIfWon();
+            if(didTheyWin) { //true
                 return true;
-            } else {
-                return false;
             }
         }
         return false;

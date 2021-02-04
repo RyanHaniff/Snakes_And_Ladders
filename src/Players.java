@@ -34,6 +34,27 @@ public class Players {
         setReRoll(copy.isReRoll());
     }
 
+    public boolean checkIfWon() {
+        if (getPositionOnBoard() > 100) {
+            //we are on 98 and roll a 5: 98+5 = 103 (would be our latest position)
+            setPositionOnBoard(100 - (getPositionOnBoard() - 100));
+            return false;
+        } else if (getPositionOnBoard() == 100 && !isLandedOnLadder()) {
+            System.out.println("Player " + getPlayerNumber() + " got dice value of " + getDiceRoll() +
+                    "; now on square " + getPositionOnBoard());
+            System.out.println("\nCongrats " + getPlayerNumberString()  + ", you have won!");
+            return true;
+        } else if (getPositionOnBoard() == 100 && isLandedOnLadder()) {
+            System.out.println("\nCongrats " + getPlayerNumberString()  + ", you have won!");
+            return true;
+        } else if (!isLandedOnSnake() && !isLandedOnLadder()) {
+            System.out.println("Player " + getPlayerNumber() + " got dice value of " + getDiceRoll() +
+                    "; now on square " + getPositionOnBoard());
+            return false;
+        }
+        return false;
+    }
+
     public int getDiceRoll() {
         return diceRoll;
     }
