@@ -28,11 +28,10 @@ public class PlayLadderAndSnake {
             }
         }
 
-
         //display grid to user
         for (int row = 0; row < size; row++) { //looping through rows
             for (int column = 0; column < size; column++) {
-                System.out.print(grid[row][column].getGridSlotNumber() + "\t" + "\t");
+                System.out.print(grid[row][column].getGridSlotNumber() + "\t\t");
             }
             System.out.println();
             System.out.println();

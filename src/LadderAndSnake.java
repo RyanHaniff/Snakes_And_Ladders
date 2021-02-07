@@ -4,6 +4,7 @@ public class LadderAndSnake {
 
     private final static int DICE = 6;
     private int gridSlotNumber; //store grid numbers into this object
+    private boolean gridSlotEmpty;
     private int[][] snakes; //8 sneks
     private int[][] ladders; //9 ladders
     private final int SNAKE_NUMBERS = 8; //# of snakes
@@ -12,6 +13,7 @@ public class LadderAndSnake {
     //default constructor
     public LadderAndSnake() {
         gridSlotNumber = 0;
+        gridSlotEmpty = true;
     }
 
     static public int flipDice() {
@@ -26,7 +28,7 @@ public class LadderAndSnake {
             players[i] = new Players(i + 1); //add a player to the array with a player number
         }
 
-        //odrder the players based on dice roll
+        //order the players based on dice roll
         playerOrderCalc(players, 0, players.length);
 
         //output toString
@@ -61,7 +63,6 @@ public class LadderAndSnake {
 
     // TODO: 2021-01-31 Comments and javadoc
     // TODO: 2021-02-02 How to output grid and move players on the grid.
-    // TODO: 2021-02-04 add line "They were on square 70 and now on square 74
     /**
      * Move the players on the grid
      *
@@ -100,11 +101,56 @@ public class LadderAndSnake {
                 }
             }
             didTheyWin = players[playerOrder].checkIfWon();
+            displayBoard(players, playerOrder);
             if(didTheyWin) { //true
                 return true;
             }
         }
         return false;
+    }
+
+    public void displayBoard(Players[] players, int playerOrder) {
+        int size = 10;
+        int firstRow = 9;
+        int lastColumn = 9;
+        int count = 1;
+
+        LadderAndSnake[][] grid = new LadderAndSnake[size][size];
+
+        for (int row = 0; row < grid.length; row++) { //row
+            for (int column = 0; column < grid[row].length; column++) { //column
+                grid[row][column] = new LadderAndSnake(); //anonymous object added to each position
+            }
+        }
+        //how pieces move on board
+        for (int i = firstRow; i >= 0; i--) { //odd # rows go from left right //even # rows go from right to left
+            if (i % 2 != 0) { //if row odd
+                for (int j = 0; j < size; j++) { //increment columns
+                    grid[i][j].setGridSlotNumber(count++);
+                }
+            } else { //if row even
+                for (int k = lastColumn; k >= 0; k--) {
+                    grid[i][k].setGridSlotNumber(count++);
+                }
+            }
+        }
+
+        //display grid to user
+        for (int row = 0; row < size; row++) { //looping through rows
+            for (int column = 0; column < size; column++) {
+                //for(int i = players.length - 1; i >= 0; i--) {
+                    if (grid[row][column].getGridSlotNumber() == players[playerOrder].getPositionOnBoard()){
+                        grid[row][column].setGridSlotEmpty(false);
+                        System.out.print("P" + players[playerOrder].getPlayerNumber() + "\t\t");
+                    }
+                //}
+                if(grid[row][column].isGridSlotEmpty()){
+                    System.out.print(grid[row][column].getGridSlotNumber() + "\t\t");
+                }
+            }
+            System.out.println();
+            System.out.println();
+        }
     }
 
     public void playerOrderCalc(Players[] players, int start, int end) { //start is the starting position of array, and end is ending.
@@ -178,6 +224,14 @@ public class LadderAndSnake {
                 playerOrderCalc(players, runStart, i);
             }
         }
+    }
+
+    public boolean isGridSlotEmpty() {
+        return gridSlotEmpty;
+    }
+
+    public void setGridSlotEmpty(boolean gridSlotEmpty) {
+        this.gridSlotEmpty = gridSlotEmpty;
     }
 
     public void reRoll(Players pl) {
