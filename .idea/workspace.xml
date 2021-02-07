@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Added grid to every turn and player">
+    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Added colours to players (needs fixing), and has debug comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment1/LadderAndSnake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment1/LadderAndSnake.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment1/Players.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment1/Players.class" afterDir="false" />
@@ -144,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612709869906</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added colours to players (needs fixing), and has debug comments">
+      <created>1612713512881</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1612713512881</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,15 +177,16 @@
     <MESSAGE value="Added the check to see if position 100 was landed on" />
     <MESSAGE value="Fixed landing on square 100" />
     <MESSAGE value="Added grid to every turn and player" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added grid to every turn and player" />
+    <MESSAGE value="Added colours to players (needs fixing), and has debug comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added colours to players (needs fixing), and has debug comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/LadderAndSnake.java</url>
-          <line>157</line>
-          <option name="timeStamp" value="11" />
+          <line>166</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

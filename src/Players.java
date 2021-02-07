@@ -8,7 +8,7 @@ public class Players {
     private int diceRoll;
     private boolean landedOnSnake;
     private boolean landedOnLadder;
-    String playerColour;
+    private String playerColour;
 
     public static final String TEXT_RESET = "\u001B[0m";
 
@@ -59,7 +59,7 @@ public class Players {
     }
 
     public void setPlayerColour(String colour){
-        playerColour = colour;
+        this.playerColour = colour;
     }
 
     public String getPlayerColour(){

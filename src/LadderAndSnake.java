@@ -5,13 +5,10 @@ public class LadderAndSnake {
     private final static int DICE = 6;
     private int gridSlotNumber; //store grid numbers into this object
     private boolean gridSlotEmpty;
-    private int[][] snakes; //8 sneks
+    private int[][] snakes; //8 snakes
     private int[][] ladders; //9 ladders
     private final int SNAKE_NUMBERS = 8; //# of snakes
     private final int LADDER_NUMBERS = 9; //# of ladders
-
-    public static final String TEXT_RESET = "\u001B[0m";
-    public static final String TEXT_BLACK = "\u001B[30m";
     public static final String TEXT_RED = "\u001B[31m";
     public static final String TEXT_GREEN = "\u001B[32m";
     public static final String TEXT_YELLOW = "\u001B[33m";
@@ -34,12 +31,6 @@ public class LadderAndSnake {
         for (int i = 0; i < players.length; i++) {
             players[i] = new Players(i + 1); //add a player to the array with a player number
         }
-
-        players[0].setPlayerColour(TEXT_RED);
-        players[1].setPlayerColour(TEXT_GREEN);
-        players[2].setPlayerColour(TEXT_YELLOW);
-        players[3].setPlayerColour(TEXT_BLUE);
-
 
         //order the players based on dice roll
         playerOrderCalc(players, 0, players.length);
@@ -74,9 +65,9 @@ public class LadderAndSnake {
         }
     }
 
-
     // TODO: 2021-01-31 Comments and javadoc
-    // TODO: 2021-02-02 How to output grid and move players on the grid.
+    // TODO: 2021-02-07 Fix colours
+    // TODO: 2021-02-07 Remove debug comments
 
     /**
      * Move the players on the grid
@@ -130,6 +121,20 @@ public class LadderAndSnake {
         int lastColumn = 9;
         int count = 1;
 
+        if (players.length == 2) { //Check to is if there are 2, 3 or 4 players to give out colours
+            players[0].setPlayerColour(TEXT_RED);
+            players[1].setPlayerColour(TEXT_GREEN);
+        } else if (players.length == 3) {
+            players[0].setPlayerColour(TEXT_RED);
+            players[1].setPlayerColour(TEXT_GREEN);
+            players[2].setPlayerColour(TEXT_YELLOW);
+        } else {
+            players[0].setPlayerColour(TEXT_RED);
+            players[1].setPlayerColour(TEXT_GREEN);
+            players[2].setPlayerColour(TEXT_YELLOW);
+            players[3].setPlayerColour(TEXT_BLUE);
+        }
+
         LadderAndSnake[][] grid = new LadderAndSnake[size][size];
 
         for (int row = 0; row < grid.length; row++) { //row
@@ -159,9 +164,9 @@ public class LadderAndSnake {
                     if (grid[row][column].getGridSlotNumber() == players[i].getPositionOnBoard()) {
                         grid[row][column].setGridSlotEmpty(false);
                         //if (i != 0) { //if not at the end of the loop, put space
-                            playerString += (players[i].getPlayerColour());
+                        playerString += (players[i].getPlayerColour());
                         //} else { //if at end of the loop, no space
-                            //playerString = (TEXT_RED + "P" + players[i].getPlayerNumber() + TEXT_RESET);
+                        //playerString = (TEXT_RED + "P" + players[i].getPlayerNumber() + TEXT_RESET);
                         //}
                         //System.out.print("P" + players[playerOrder].getPlayerNumber() + "\t\t");
                     }
@@ -355,4 +360,3 @@ public class LadderAndSnake {
         ladders[8][1] = 100;
     }
 }
-
