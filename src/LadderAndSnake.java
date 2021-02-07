@@ -10,6 +10,13 @@ public class LadderAndSnake {
     private final int SNAKE_NUMBERS = 8; //# of snakes
     private final int LADDER_NUMBERS = 9; //# of ladders
 
+    public static final String TEXT_RESET = "\u001B[0m";
+    public static final String TEXT_BLACK = "\u001B[30m";
+    public static final String TEXT_RED = "\u001B[31m";
+    public static final String TEXT_GREEN = "\u001B[32m";
+    public static final String TEXT_YELLOW = "\u001B[33m";
+    public static final String TEXT_BLUE = "\u001B[34m";
+
     //default constructor
     public LadderAndSnake() {
         gridSlotNumber = 0;
@@ -27,6 +34,12 @@ public class LadderAndSnake {
         for (int i = 0; i < players.length; i++) {
             players[i] = new Players(i + 1); //add a player to the array with a player number
         }
+
+        players[0].setPlayerColour(TEXT_RED);
+        players[1].setPlayerColour(TEXT_GREEN);
+        players[2].setPlayerColour(TEXT_YELLOW);
+        players[3].setPlayerColour(TEXT_BLUE);
+
 
         //order the players based on dice roll
         playerOrderCalc(players, 0, players.length);
@@ -53,7 +66,8 @@ public class LadderAndSnake {
         while (!won) { //looping the players until someone reach 100
 
             won = movePlayer(players);
-            if(!won) {
+            displayBoard(players);
+            if (!won) {
                 System.out.println("Game not over; flipping again");
                 System.out.println();
             }
@@ -63,6 +77,7 @@ public class LadderAndSnake {
 
     // TODO: 2021-01-31 Comments and javadoc
     // TODO: 2021-02-02 How to output grid and move players on the grid.
+
     /**
      * Move the players on the grid
      *
@@ -101,15 +116,15 @@ public class LadderAndSnake {
                 }
             }
             didTheyWin = players[playerOrder].checkIfWon();
-            displayBoard(players, playerOrder);
-            if(didTheyWin) { //true
+            //displayBoard(players, playerOrder);
+            if (didTheyWin) { //true
                 return true;
             }
         }
         return false;
     }
 
-    public void displayBoard(Players[] players, int playerOrder) {
+    public void displayBoard(Players[] players) {
         int size = 10;
         int firstRow = 9;
         int lastColumn = 9;
@@ -136,15 +151,24 @@ public class LadderAndSnake {
         }
 
         //display grid to user
+        String playerString = "";
         for (int row = 0; row < size; row++) { //looping through rows
             for (int column = 0; column < size; column++) {
-                //for(int i = players.length - 1; i >= 0; i--) {
-                    if (grid[row][column].getGridSlotNumber() == players[playerOrder].getPositionOnBoard()){
+                playerString = "";
+                for (int i = players.length - 1; i >= 0; i--) {
+                    if (grid[row][column].getGridSlotNumber() == players[i].getPositionOnBoard()) {
                         grid[row][column].setGridSlotEmpty(false);
-                        System.out.print("P" + players[playerOrder].getPlayerNumber() + "\t\t");
+                        //if (i != 0) { //if not at the end of the loop, put space
+                            playerString += (players[i].getPlayerColour());
+                        //} else { //if at end of the loop, no space
+                            //playerString = (TEXT_RED + "P" + players[i].getPlayerNumber() + TEXT_RESET);
+                        //}
+                        //System.out.print("P" + players[playerOrder].getPlayerNumber() + "\t\t");
                     }
-                //}
-                if(grid[row][column].isGridSlotEmpty()){
+                }
+                if (!grid[row][column].isGridSlotEmpty()) {
+                    System.out.print(playerString + "\t\t");
+                } else {
                     System.out.print(grid[row][column].getGridSlotNumber() + "\t\t");
                 }
             }

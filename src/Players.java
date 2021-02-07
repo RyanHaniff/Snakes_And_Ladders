@@ -8,6 +8,9 @@ public class Players {
     private int diceRoll;
     private boolean landedOnSnake;
     private boolean landedOnLadder;
+    String playerColour;
+
+    public static final String TEXT_RESET = "\u001B[0m";
 
     //default constructor //where u set the initial variables
     public Players() {
@@ -53,6 +56,14 @@ public class Players {
             return false;
         }
         return false;
+    }
+
+    public void setPlayerColour(String colour){
+        playerColour = colour;
+    }
+
+    public String getPlayerColour(){
+        return (playerColour + "P" + getPlayerNumber() + TEXT_RESET);
     }
 
     public int getDiceRoll() {

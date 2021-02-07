@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Fixed landing on square 100">
+    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Added grid to every turn and player">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment1/LadderAndSnake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment1/LadderAndSnake.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment1/PlayLadderAndSnake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment1/PlayLadderAndSnake.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment1/Players.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment1/Players.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LadderAndSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LadderAndSnake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayLadderAndSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayLadderAndSnake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Players.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612473870433</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added grid to every turn and player">
+      <created>1612709869906</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1612709869906</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,7 +169,19 @@
     <MESSAGE value="Todo comments and algorithm to check if player is over 100" />
     <MESSAGE value="Added the check to see if position 100 was landed on" />
     <MESSAGE value="Fixed landing on square 100" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed landing on square 100" />
+    <MESSAGE value="Added grid to every turn and player" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added grid to every turn and player" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LadderAndSnake.java</url>
+          <line>157</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
