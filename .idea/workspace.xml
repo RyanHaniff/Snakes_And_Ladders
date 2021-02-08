@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Added colours to players (needs fixing), and has debug comments">
+    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Fixed player colours and added check depending on the number of players.">
+      <change afterPath="$PROJECT_DIR$/hs_err_pid37984.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment1/LadderAndSnake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment1/LadderAndSnake.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment1/Players.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment1/Players.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment1/PlayLadderAndSnake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment1/PlayLadderAndSnake.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LadderAndSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LadderAndSnake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayLadderAndSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayLadderAndSnake.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612713512881</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fixed player colours and added check depending on the number of players.">
+      <created>1612725668951</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1612725668951</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,7 +186,8 @@
     <MESSAGE value="Fixed landing on square 100" />
     <MESSAGE value="Added grid to every turn and player" />
     <MESSAGE value="Added colours to players (needs fixing), and has debug comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added colours to players (needs fixing), and has debug comments" />
+    <MESSAGE value="Fixed player colours and added check depending on the number of players." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed player colours and added check depending on the number of players." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

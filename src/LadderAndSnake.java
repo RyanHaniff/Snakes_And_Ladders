@@ -24,9 +24,9 @@ public class LadderAndSnake {
         return (int) (Math.random() * DICE + 1); //generates a random value between 1 and 6
     }
 
-    public void play() {
+    public void play(int numberOfPlayers) {
         // create an array that holds Player Class
-        Players[] players = new Players[inputedNumPlayers()]; //hold 2-4 players
+        Players[] players = new Players[numberOfPlayers]; //hold 2-4 players
 
         for (int i = 0; i < players.length; i++) {
             players[i] = new Players(i + 1); //add a player to the array with a player number
