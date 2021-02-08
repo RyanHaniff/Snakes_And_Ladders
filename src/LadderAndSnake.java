@@ -34,9 +34,7 @@ public class LadderAndSnake {
 
         //order the players based on dice roll
         playerOrderCalc(players, 0, players.length);
-
-        //output toString
-        System.out.println("back from playerOrderCalc");
+        System.out.println();
         System.out.print("Reached final decision on order of playing: Player ");
         for (int i = players.length - 1; i >= 0; i--) { //outputs the order of the players
             if (i != 0) {
@@ -46,6 +44,8 @@ public class LadderAndSnake {
 
             }
         }
+System.out.println();
+
 
 //        players[0].setPositionOnBoard(90);
 //        players[1].setPositionOnBoard(90);
@@ -91,8 +91,8 @@ public class LadderAndSnake {
                     players[playerOrder].setPositionOnBoard(snakes[snakePosition][1]); //player moves to the tail of the snake
                     players[playerOrder].setLandedOnSnake(true);
                     System.out.println("Player " + players[playerOrder].getPlayerNumber() + " got dice value of " + players[playerOrder].getDiceRoll() +
-                            "; They landed on a snake head on square " + snakes[snakePosition][0] + " and have been moved down to square " + players[playerOrder].getPositionOnBoard());
-                    //System.out.println("They landed on a snake head and have been moved down to square " + players[playerOrder].getPositionOnBoard());
+                            "; They landed on a snake head on square " + snakes[snakePosition][0] +
+                            " and have been moved down to square " + players[playerOrder].getPositionOnBoard());
                 }
             }
 
@@ -102,8 +102,8 @@ public class LadderAndSnake {
                     players[playerOrder].setPositionOnBoard(ladders[ladderPosition][1]);
                     players[playerOrder].setLandedOnLadder(true);
                     System.out.println("Player " + players[playerOrder].getPlayerNumber() + " got dice value of " + players[playerOrder].getDiceRoll() +
-                            "; They landed at the bottom of a ladder on square " + ladders[ladderPosition][0] + " and have been moved up to square " + players[playerOrder].getPositionOnBoard());
-                    // System.out.println("They landed at the bottom of a ladder and have been moved up to square " + players[playerOrder].getPositionOnBoard());
+                            "; They landed at the bottom of a ladder on square " + ladders[ladderPosition][0] +
+                            " and have been moved up to square " + players[playerOrder].getPositionOnBoard());
                 }
             }
             didTheyWin = players[playerOrder].checkIfWon();
@@ -163,12 +163,7 @@ public class LadderAndSnake {
                 for (int i = players.length - 1; i >= 0; i--) {
                     if (grid[row][column].getGridSlotNumber() == players[i].getPositionOnBoard()) {
                         grid[row][column].setGridSlotEmpty(false);
-                        //if (i != 0) { //if not at the end of the loop, put space
                         playerString += (players[i].getPlayerColour());
-                        //} else { //if at end of the loop, no space
-                        //playerString = (TEXT_RED + "P" + players[i].getPlayerNumber() + TEXT_RESET);
-                        //}
-                        //System.out.print("P" + players[playerOrder].getPlayerNumber() + "\t\t");
                     }
                 }
                 if (!grid[row][column].isGridSlotEmpty()) {
@@ -185,30 +180,21 @@ public class LadderAndSnake {
     public void playerOrderCalc(Players[] players, int start, int end) { //start is the starting position of array, and end is ending.
         int first = 0; //for player order
         System.out.println();
-        System.out.println("Entered playerOrderCalc");
-        //if(end == players.length) {
+        // Entered playerOrderCalc
         for (int i = start; i < end; i++) {
             players[i].setDiceRollStartingOrder(flipDice()); //add a player to the array with a player number
-            //players[i].setDiceRollStartingOrder(6); //add a player to the array with a player number
         }
-        //players[3].setDiceRollStartingOrder(3); //add a player to the array with a player number
-        // players[1].setDiceRollStartingOrder(3); //add a player to the array with a player number
 
-//        } else{
-//            for (int i = start; i < end; i++) {
-//                players[i].setDiceRollStartingOrder(flipDice()); //add a player to the array with a player number
-//            }
-//        }
 
         //output each players dice value:
         for (int i = start; i < end; i++) {
             System.out.println("Player " + players[i].getPlayerNumber() + " rolled a " + players[i].getDiceRollStartingOrder());
         }
-        System.out.println("before sorting");
 
-        for (int i = 0; i < players.length; i++) {
-            System.out.println(players[i]);
-        }
+        //before sorting
+//        for (int i = 0; i < players.length; i++) {
+//            System.out.println(players[i]);
+//        }
 
         int min; //smallest guy in the array
         Players temp; //move around the 'min' inside the array
@@ -225,10 +211,9 @@ public class LadderAndSnake {
             players[i] = new Players(temp); //place smaller value where i is.
         } //at this point, the whole array is sorted
 
-        System.out.println("after sorting");
+        //after sorting
         for (int i = 0; i < players.length; i++) {
             players[i].setPlayerOrder(players.length - i); //update playerOrder variable
-            System.out.println(players[i]);
         }
 
         //Look for players who roll the same number
@@ -243,13 +228,13 @@ public class LadderAndSnake {
             }
 
             if (i - runStart > 1) { //there are two or more consecutive dice rolls that had the same dice roll
+                System.out.println();
                 System.out.print("A tie was achieved between " + players[runStart].getPlayerNumberString());
                 for (int j = runStart + 1; j < i; j++) {
                     System.out.print(" and " + players[j].getPlayerNumberString());
                 }
                 // We have found more than one player with the same dice number.
                 // Get all of the players with that dice number to roll again.
-                System.out.println("\nRecursion into playerOrderCalc: runStart=" + runStart + ", i=" + i);
                 playerOrderCalc(players, runStart, i);
             }
         }
@@ -268,28 +253,6 @@ public class LadderAndSnake {
             pl.setDiceRollStartingOrder(flipDice());
             pl.setReRoll(false);
         }
-    }
-
-    public int inputedNumPlayers() {
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Enter the # of players for your game – Number must be between 2 and 4 inclusively: ");
-        int numPlayers = input.nextInt();
-
-        //Attempts to add valid # of players (first input not counted)
-        for (int i = 0; i < 3; i++) {
-            if (numPlayers < 2 || numPlayers > 4) { //verifying if # of players i out of bounds
-                System.out.print("Bad Attempt " + (i + 1) + " - Invalid # of players. Please enter a # between 2 and 4 inclusively: ");
-                numPlayers = input.nextInt();
-
-                if (i == 2) { //4 attempts have been exhausted
-                    System.out.println("Bad Attempt " + (i + 2) + " You have exhausted all your chances. Program will terminate!");
-                    System.exit(69); //will terminate program with exit code 0
-                }
-            }
-        }
-        System.out.println("Game is played by " + numPlayers + " players.");
-        return numPlayers;
     }
 
     public int getGridSlotNumber() {

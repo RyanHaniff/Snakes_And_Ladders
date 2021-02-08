@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Fixed player colours and added check depending on the number of players.">
-      <change afterPath="$PROJECT_DIR$/hs_err_pid37984.log" afterDir="false" />
+    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Last version before removing unnecessary comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment1/LadderAndSnake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment1/LadderAndSnake.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment1/PlayLadderAndSnake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment1/PlayLadderAndSnake.class" afterDir="false" />
@@ -159,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612725668951</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Last version before removing unnecessary comments">
+      <created>1612800355152</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1612800355152</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,18 +193,8 @@
     <MESSAGE value="Added grid to every turn and player" />
     <MESSAGE value="Added colours to players (needs fixing), and has debug comments" />
     <MESSAGE value="Fixed player colours and added check depending on the number of players." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed player colours and added check depending on the number of players." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/LadderAndSnake.java</url>
-          <line>166</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Last version before removing unnecessary comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last version before removing unnecessary comments" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
