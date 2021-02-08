@@ -5,6 +5,15 @@ import java.util.Scanner;
 //Written by: Ryan Haniff (27069421) Véronique Deveaux (40170464)
 //---------------------------------------------------------------
 
+// General explanation:
+// This is a board game of Ladder and Snake. Two to four players start by establishing the player order.
+// Once this has been established, they start playing. Their initial position is off the board. After they each
+// roll the die, they start moving on the board. If they hit the bottom of a ladder, they go up to the top of it,
+// and if they hit the head of a snake, they slide down to its tail. The game ends when a player reaches exactly 100.
+// If a player passes 100, they move back with the excessive amount. Everytime all players roll the die, the board is
+// printed out so that they can keep track of everyone's progress. Every player has their own colour to make is easier
+// to differentiate them from their opponents.
+
 /**
  * @author Ryan Haniff (27069421)
  * @author Veronique Deveaux (40170464)

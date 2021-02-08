@@ -231,6 +231,7 @@ public class LadderAndSnake {
      * @param players a Players array object.
      * @param start   is an integer of the starting position of the array.
      * @param end     is an integer of the ending position of the array.
+     * @see Players
      */
     public void playerOrderCalc(Players[] players, int start, int end) { //start is the starting position of array, and end is ending.
         int first = 0; //for player order
@@ -362,7 +363,8 @@ public class LadderAndSnake {
      */
     public void ladderPosition() {
 
-        ladders = new int[LADDER_NUMBERS][2]; //every ladder has a starting and ending position, hence the number 2
+        ladders = new int[LADDER_NUMBERS][2]; //every ladder has a starting
+        // and ending position, hence the number 2
 
         ladders[0][0] = 1;
         ladders[0][1] = 38;

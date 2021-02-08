@@ -15,7 +15,7 @@
  *
  * The Players class is used in Part I to store values of a player. It stores basic information like the player order,
  * their position on the board, player colour, and others. A checkIfWon method is used to determine if a player has
- * reached 100 and if not outputs the necessary comments to the user.
+ * reached 100 and, if not, outputs the necessary comments to the user.
  */
 
 public class Players {
@@ -100,8 +100,10 @@ public class Players {
         if (getPositionOnBoard() > 100) {
             //we are on 98 and roll a 5: 98+5 = 103 (would be our latest position)
             setPositionOnBoard(100 - (getPositionOnBoard() - 100));
+            System.out.println("Player " + getPlayerNumber() + " got dice value of " + getDiceRoll() +
+                    "; They passed 100. Now moved back to square " + getPositionOnBoard());
             return false;
-        } else if (getPositionOnBoard() == 100 && !isLandedOnLadder()) {
+        } else if (getPositionOnBoard() == 100 && !isLandedOnLadder()) { //check only for ladder because position 80 brings us to 100
             System.out.println("Player " + getPlayerNumber() + " got dice value of " + getDiceRoll() +
                     "; now on square " + getPositionOnBoard());
             System.out.println("\nCongrats " + getPlayerNumberString() + ", you have won!");
