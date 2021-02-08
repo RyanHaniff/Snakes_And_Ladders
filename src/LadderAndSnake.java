@@ -1,32 +1,80 @@
-import java.util.Scanner;
+//---------------------------------------------------------------
+//Assignment 1
+//Question: Part I
+//Written by: Ryan Haniff (27069421) Véronique Deveaux (40170464)
+//---------------------------------------------------------------
+
+/**
+ * @author Ryan Haniff (27069421)
+ * @author Veronique Deveaux (40170464)
+ *
+ * <p>COMP 249</p>
+ * <p>Assigment #1</p>
+ * <p>Due Date: February 8th, 2021</p>
+ * <p>Part I</p>
+ *
+ * In part I, the LadderAndSnake class revolves around the play() method. We create the players, decide the order
+ * and start playing on the board. Snakes and ladders are implemented through their designated methods. A check is run
+ * to see if a player has reached 100, if so they won the game and the program terminates.
+ */
 
 public class LadderAndSnake {
 
+    /**
+     * The amount of sides to a dice.
+     */
     private final static int DICE = 6;
-    private int gridSlotNumber; //store grid numbers into this object
+    //store grid numbers for the board.
+    private int gridSlotNumber;
     private boolean gridSlotEmpty;
-    private int[][] snakes; //8 snakes
-    private int[][] ladders; //9 ladders
-    private final int SNAKE_NUMBERS = 8; //# of snakes
-    private final int LADDER_NUMBERS = 9; //# of ladders
+    /**
+     * Store snake position in 2D array.
+     */
+    private int[][] snakes;
+    /**
+     * Store ladders in 2D array.
+     */
+    private int[][] ladders;
+    /**
+     * Number of snakes on the board (8)
+     */
+    private final int SNAKE_NUMBERS = 8;
+    /**
+     * Number of ladders on the board (9)
+     */
+    private final int LADDER_NUMBERS = 9;
+    //Text colour for the players.
     public static final String TEXT_RED = "\u001B[31m";
     public static final String TEXT_GREEN = "\u001B[32m";
     public static final String TEXT_YELLOW = "\u001B[33m";
     public static final String TEXT_BLUE = "\u001B[34m";
 
-    //default constructor
+    /**
+     * Default constructor.
+     */
     public LadderAndSnake() {
         gridSlotNumber = 0;
         gridSlotEmpty = true;
     }
 
+    /**
+     * Generates a random value between 1 and 6.
+     *
+     * @return A random dice value for players to use.
+     */
     static public int flipDice() {
-        return (int) (Math.random() * DICE + 1); //generates a random value between 1 and 6
+        return (int) (Math.random() * DICE + 1);
     }
 
+    /**
+     * Creates the Players class array to order the players and loops until one wins.
+     *
+     * @param numberOfPlayers User determined number of players to play the game.
+     * @see Players
+     */
     public void play(int numberOfPlayers) {
         // create an array that holds Player Class
-        Players[] players = new Players[numberOfPlayers]; //hold 2-4 players
+        Players[] players = new Players[numberOfPlayers]; //holds 2-4 players
 
         for (int i = 0; i < players.length; i++) {
             players[i] = new Players(i + 1); //add a player to the array with a player number
@@ -44,35 +92,30 @@ public class LadderAndSnake {
 
             }
         }
-System.out.println();
-
-
-//        players[0].setPositionOnBoard(90);
-//        players[1].setPositionOnBoard(90);
-//        players[2].setPositionOnBoard(90);
-//        players[3].setPositionOnBoard(90);
+        System.out.println();
 
         boolean won = false;
         int test = 0;
         while (!won) { //looping the players until someone reach 100
 
             won = movePlayer(players);
+            System.out.println();
             displayBoard(players);
             if (!won) {
                 System.out.println("Game not over; flipping again");
                 System.out.println();
+            } else {
+                System.out.println("Program is terminating. See you next time!");
             }
         }
     }
 
-    // TODO: 2021-01-31 Comments and javadoc
-    // TODO: 2021-02-07 Fix colours
-    // TODO: 2021-02-07 Remove debug comments
-
     /**
-     * Move the players on the grid
+     * Move the players on the grid, checking if they land on a snake or ladder.
      *
-     * @param players the players on the board
+     * @param players a Players array object.
+     * @return a boolean depending on if the player won.
+     * @see Players
      */
     public Boolean movePlayer(Players[] players) {
         snakePosition();
@@ -107,7 +150,6 @@ System.out.println();
                 }
             }
             didTheyWin = players[playerOrder].checkIfWon();
-            //displayBoard(players, playerOrder);
             if (didTheyWin) { //true
                 return true;
             }
@@ -115,6 +157,12 @@ System.out.println();
         return false;
     }
 
+    /**
+     * After all the players have moved, display the grid with their designated colours.
+     *
+     * @param players a Players array object.
+     * @see Players
+     */
     public void displayBoard(Players[] players) {
         int size = 10;
         int firstRow = 9;
@@ -155,7 +203,7 @@ System.out.println();
             }
         }
 
-        //display grid to user
+        //display grid in the console
         String playerString = "";
         for (int row = 0; row < size; row++) { //looping through rows
             for (int column = 0; column < size; column++) {
@@ -177,6 +225,13 @@ System.out.println();
         }
     }
 
+    /**
+     * The order of players is determined depending on their dice roll.
+     *
+     * @param players a Players array object.
+     * @param start   is an integer of the starting position of the array.
+     * @param end     is an integer of the ending position of the array.
+     */
     public void playerOrderCalc(Players[] players, int start, int end) { //start is the starting position of array, and end is ending.
         int first = 0; //for player order
         System.out.println();
@@ -190,11 +245,6 @@ System.out.println();
         for (int i = start; i < end; i++) {
             System.out.println("Player " + players[i].getPlayerNumber() + " rolled a " + players[i].getDiceRollStartingOrder());
         }
-
-        //before sorting
-//        for (int i = 0; i < players.length; i++) {
-//            System.out.println(players[i]);
-//        }
 
         int min; //smallest guy in the array
         Players temp; //move around the 'min' inside the array
@@ -240,31 +290,47 @@ System.out.println();
         }
     }
 
+    /**
+     * Determines if the grid slot is empty or not.
+     *
+     * @return a boolean value of empty grid.
+     */
     public boolean isGridSlotEmpty() {
         return gridSlotEmpty;
     }
 
+    /**
+     * Sets the grid slot to empty or not.
+     *
+     * @param gridSlotEmpty is a boolean value.
+     */
     public void setGridSlotEmpty(boolean gridSlotEmpty) {
         this.gridSlotEmpty = gridSlotEmpty;
     }
 
-    public void reRoll(Players pl) {
-        if (pl.isReRoll()) {
-            pl.setDiceRollStartingOrder(flipDice());
-            pl.setReRoll(false);
-        }
-    }
-
+    /**
+     * Gets the grid slot number on which the player lands on.
+     *
+     * @return a integer value of the grid slot number on which the player lands on.
+     */
     public int getGridSlotNumber() {
         return gridSlotNumber;
     }
 
+    /**
+     * Setting the grid slot number on which the player lands on.
+     *
+     * @param gridSlotNumber an integer value of grid slot number.
+     */
     public void setGridSlotNumber(int gridSlotNumber) {
         this.gridSlotNumber = gridSlotNumber;
     }
 
+    /**
+     * Setting the snake positions.
+     */
     public void snakePosition() {
-        snakes = new int[SNAKE_NUMBERS][2];
+        snakes = new int[SNAKE_NUMBERS][2]; //every snake has a starting and ending position, hence the number 2
 
         snakes[0][0] = 16;
         snakes[0][1] = 6;
@@ -291,9 +357,12 @@ System.out.println();
         snakes[7][1] = 78;
     }
 
+    /**
+     * Setting the ladder positions.
+     */
     public void ladderPosition() {
 
-        ladders = new int[LADDER_NUMBERS][2];
+        ladders = new int[LADDER_NUMBERS][2]; //every ladder has a starting and ending position, hence the number 2
 
         ladders[0][0] = 1;
         ladders[0][1] = 38;
