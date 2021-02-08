@@ -95,7 +95,6 @@ public class LadderAndSnake {
         System.out.println();
 
         boolean won = false;
-        int test = 0;
         while (!won) { //looping the players until someone reach 100
 
             won = movePlayer(players);
@@ -120,7 +119,7 @@ public class LadderAndSnake {
     public Boolean movePlayer(Players[] players) {
         snakePosition();
         ladderPosition();
-        boolean didTheyWin = false;
+        boolean didTheyWin;
 
         for (int playerOrder = players.length - 1; playerOrder >= 0; playerOrder--) { //our players are in ascending order, so we start from last array position
             players[playerOrder].setDiceRoll(flipDice()); //bc we're flipping the dice and need to assign it to the correct player (to add to their position on the board)
@@ -204,7 +203,7 @@ public class LadderAndSnake {
         }
 
         //display grid in the console
-        String playerString = "";
+        String playerString;
         for (int row = 0; row < size; row++) { //looping through rows
             for (int column = 0; column < size; column++) {
                 playerString = "";
@@ -234,7 +233,6 @@ public class LadderAndSnake {
      * @see Players
      */
     public void playerOrderCalc(Players[] players, int start, int end) { //start is the starting position of array, and end is ending.
-        int first = 0; //for player order
         System.out.println();
         // Entered playerOrderCalc
         for (int i = start; i < end; i++) {

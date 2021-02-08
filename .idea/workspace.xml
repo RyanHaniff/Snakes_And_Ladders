@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Added Javadoc comments">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="22cd8842-795d-4794-8c48-6f893cddeda7" name="Default Changelist" comment="Finalized comments and Javadoc.">
       <change beforePath="$PROJECT_DIR$/src/LadderAndSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LadderAndSnake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayLadderAndSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayLadderAndSnake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Players.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612810322008</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Finalized comments and Javadoc.">
+      <created>1612820258246</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1612820258246</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,7 +213,8 @@
     <MESSAGE value="Last version before removing unnecessary comments" />
     <MESSAGE value="After removing comments and unnecessary code" />
     <MESSAGE value="Added Javadoc comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Javadoc comments" />
+    <MESSAGE value="Finalized comments and Javadoc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalized comments and Javadoc." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
